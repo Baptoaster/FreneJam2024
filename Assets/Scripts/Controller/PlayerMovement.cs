@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float speed = 5f;
     public float jumpForce = 2f;
+    public Animator anim;
     public UnityEvent goLeft;
     public UnityEvent goRight;
 
@@ -25,6 +26,14 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         
         rb.velocity = new Vector2(movement.x * speed, rb.velocity.y);
+        if (rb.velocity.magnitude > 0.5)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
     }
     public void HorizontalMovement()
     {

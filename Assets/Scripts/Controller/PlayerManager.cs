@@ -6,12 +6,10 @@ using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
-    //Will handle death, win, collectibles
-
     public PlayerInput pI;
     public PlayerMovement pM;
 
-    public bool isGameFinished;
+    public bool isGameFinished { get; set; }
     public UnityEvent Death;
     public GameObject deathScreen;
     public GameObject winScreen;
@@ -39,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         {
             pM.MoveUpdate();
         }
+        else { pM.rb.velocity = Vector3.zero; pM.rb.Sleep(); }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
