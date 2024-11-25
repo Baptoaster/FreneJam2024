@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8f736ef82e2ae44aa3fe5710c49839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 33ac90d47710d994498cc37c67735c44, type: 2}
   pI: {fileID: 5375602730173036453}
   pM: {fileID: 8059949409987057708}
   Death:

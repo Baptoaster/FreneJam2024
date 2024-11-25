@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField]
+    PlayerData playerData;
+
     public PlayerInput pI;
     public PlayerMovement pM;
 
@@ -58,11 +61,18 @@ public class PlayerManager : MonoBehaviour
         if (pM.isMirrored == false)
         {
             deathScreen.SetActive(true);
+            playerData.playerDeaths++;
         }
         else
         {
             winScreen.SetActive(true);
         }
         gameObject.SetActive(false);
+    }
+
+    private void OnApplicationQuit()
+    {
+        playerData.playerDeaths = 0;
+        playerData.playerCoins = 0;
     }
 }
